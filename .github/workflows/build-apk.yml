@@ -3,6 +3,9 @@ name: Sestavit Elixir Stesti APK
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,9 +22,9 @@ jobs:
           java-version: '17'
 
       - name: Nastavit Android SDK
-  uses: android-actions/setup-android@v3
-  with:
-    packages: platform-tools
+        uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Nastavit Gradle
         uses: gradle/actions/setup-gradle@v4
